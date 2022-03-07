@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VMart Coupon Freeee</title>
+</head>
+<body>
+	<button onclick="getCoupan()">Get coupan</button>
+	<span id="cou"></span>
+	<script>
+		var c=document.querySelector("#cou");
+		async function getCoupan(){
+			await fetch("https://vmartgames.com/holi/register", {
+			    "credentials": "omit",
+			    "headers": {
+			        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
+			        "Accept": "*/*",
+			        "Accept-Language": "en-US,en;q=0.5",
+			        "Content-Type": "application/json",
+			        "Pragma": "no-cache",
+			        "Cache-Control": "no-cache"
+			    },
+			    "referrer": "https://vmartgames.com/holi/",
+			    "body": "{\"name\":\"Aman\",\"phone\":\"9832749283\",\"city\":\"qwroiquweopiqu\",\"score\":\"00\"}",
+			    "method": "POST",
+			    "mode": "cors"
+			}).then(ret=>ret.json()).then(res=>{
+				c.innerHTML+="\n"+res.coupon;
+				console.log(res)
+			});
+		}
+	</script>
+</body>
+</html>
